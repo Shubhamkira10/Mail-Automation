@@ -54,10 +54,10 @@ Message:
 {customer_message}
 """
 
-    result = predict_sentiment(email_text)
+    result = predict_sentiment(email_text) or {}
 
-    sentiment = result["sentiment"]
-    confidence = result["confidence"]
+    sentiment = result.get("sentiment")
+    confidence = result.get("confidence", 0.0)
 
     if sentiment is not None:
 
