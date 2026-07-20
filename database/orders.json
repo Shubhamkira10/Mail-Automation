@@ -1,0 +1,25 @@
+[
+    {
+        "order_id": "ORD748596",
+        "customer_id": "CUS001",
+        "product_id": "PROD001",
+        "status": "Delivered",
+        "order_date": "2026-06-20",
+        "delivery_date": "2026-06-28",
+        "tracking_number": "TRK983421",
+        "payment_status": "Paid",
+        "shipping_address": "Flat 402, Sunrise Residency",
+        "delivery_partner": "BlueDart"
+    },
+    {
+        "order_id": "ORD635241",
+        "customer_id": "CUS002",
+        "product_id": "PROD002",
+        "status": "In Transit",
+        "order_date": "2026-06-22",
+        "expected_delivery": "2026-07-02",
+        "tracking_number": "TRK783412",
+        "payment_status": "Paid",
+        "delivery_partner": "Delhivery"
+    }
+]

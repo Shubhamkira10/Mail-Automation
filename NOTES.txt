@@ -1,0 +1,93 @@
+status = order.get("status", "Unknown") -> LLM_REPLY.PY { def generate_reply() }
+order (Dictionary)
+        │
+        ▼
+order.get("status", "Unknown")
+        │
+        ├── If "status" exists
+        │       ↓
+        │   Returns its value
+        │   Example: "Delivered"
+        │
+        └── If "status" does not exist
+                ↓
+        Returns "Unknown"
+                ↓
+Program continues safely without crashing
+
+
+result = json.loads(text) {Whole code inside the *try*} -> def generate_reply
+Gemini Response
+       │
+       ▼
+json.loads()
+       │
+       ▼
+Python Dictionary
+       │
+       ▼
+Check Required Keys
+       │
+       ├── Missing?
+       │      │
+       │      ▼
+       │  ValueError
+       │
+       ▼
+Check backend_action
+       │
+       ├── Invalid?
+       │      │
+       │      ▼
+       │  ValueError
+       │
+       ▼
+Attach Order
+       │
+       ▼
+Return Result
+
+DATABASE.PY 
+Timeline
+Without calling **load_database()**
+Python starts
+↓
+Reads import json
+↓
+Reads def load_database()
+↓
+Stores the function
+↓
+Stops
+ORDERS does NOT exist
+
+With load_database()
+def load_database():
+    global ORDERS
+    ORDERS = json.load(f)
+load_database()
+
+Execution:
+Python starts
+↓
+Reads import json
+↓
+Reads def load_database()
+↓
+Stores the function
+↓
+Reads load_database()
+↓
+Calls the function
+↓
+ORDERS = json.load(...)
+↓
+ORDERS is now created
+
+
+| Service                    | Public Email | API/IMAP   | Free                | Best For          |
+| -------------------------- | ------------ | ---------- | ------------------- | ----------------- |
+| **MailSlurp**              | ✅            | ✅ REST API | ✅ Limited free tier | ⭐⭐⭐⭐⭐ Development |
+| **Mailtrap Email Sandbox** | ✅ Test inbox | ✅ API      | ✅ Limited free tier | ⭐⭐⭐⭐              |
+| **CloudMailin**            | ✅            | ✅ Webhooks | ✅ Limited free tier | ⭐⭐⭐⭐              |
+

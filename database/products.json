@@ -1,0 +1,52 @@
+[
+    {
+        "product_id": "PROD001",
+        "product_name": "Laptop Charger",
+        "category": "Electronics",
+
+        "replacement_allowed": true,
+        "return_allowed": true,
+        "refund_allowed": true,
+
+        "replacement_window_days": 7,
+        "return_window_days": 30,
+        "refund_window_days": 30,
+
+        "warranty_months": 12,
+        "requires_serial_number": false
+    },
+
+    {
+        "product_id": "PROD002",
+        "product_name": "Gift Card",
+        "category": "Digital",
+
+        "replacement_allowed": false,
+        "return_allowed": false,
+        "refund_allowed": false,
+
+        "replacement_window_days": 0,
+        "return_window_days": 0,
+        "refund_window_days": 0,
+
+        "warranty_months": 0,
+        "requires_serial_number": false
+    },
+
+    {
+        "product_id": "PROD003",
+        "product_name": "Bluetooth Headphones",
+        "category": "Electronics",
+
+        "replacement_allowed": true,
+        "return_allowed": true,
+        "refund_allowed": true,
+
+        "replacement_window_days": 7,
+        "return_window_days": 15,
+        "refund_window_days": 15,
+
+        "warranty_months": 24,
+        "requires_serial_number": true
+    }
+]

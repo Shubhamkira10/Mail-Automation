@@ -1,0 +1,43 @@
+[
+    {
+        "conversation_id": "CONV-ORD635241",
+        "order_id": "ORD635241",
+        "order_status": "In Transit",
+        "messages": [
+            {
+                "message_id": "<CAKTmuQV+=_SLsRT0uyko=eeDX6dvtPxX=V2e4-6BvDFDg97RYg@mail.gmail.com>",
+                "direction": "incoming",
+                "channel": "Email",
+                "sender": "customer@example.com",
+                "subject": "Regarding Your Query for Order ORD635241 - Refund Request and Product Information",
+                "body": "Dear Shubham,\n\nThank you for reaching out to ELEMENTAL CONCEPT regarding Order ORD635241, which is registered under Aman Verma.\n\nI understand you wish to cancel this order and request a refund as you no longer want the item. Upon reviewing Order ORD635241, which includes a Gift Card, I must inform you that our policy states digital products like Gift Cards are generally not eligible for refunds once the order has been processed and is in transit. Your order, with tracking number TRK783412 from Delhivery, is currently 'In Transit'. At this stage, modifications or cancellations are no longer possible as the shipment has already left our warehouse and is moving through the courier network.\n\nRegarding your request for a 'products.json' file containing all product details, please understand that we do not provide our product catalog in this specific file format to customers. However, if you're looking for specific information about any of our products, please let us know, and I would be more than happy to provide you with the details you need directly.\n\nWe appreciate your understanding in this matter. Please feel free to reach out if you have any other questions or need any further assistance.\n\nBest Regards,\n\nELEMENTAL CONCEPT\nAI Customer Support Executive",
+                "timestamp": "2026-07-13 11:38:47"
+            },
+            {
+                "message_id": "<CAKTmuQVgO8VXU_PU=jD5VJ=C40UiyzFKcfp8bmj_aPWD7AdRkw@mail.gmail.com>",
+                "direction": "outgoing",
+                "channel": "Email",
+                "sender": "Elemental Concept",
+                "subject": "Regarding Your Order ORD635241 - Refund Request and Product Information",
+                "body": "Dear Aman,\n\nThank you for reaching out to us regarding your order, ORD635241. I understand you wish to receive a refund as you no longer want the item.\n\nUpon reviewing your request, I see that your order is for a Gift Card. Please note that due to the nature of our digital Gift Cards, they are non-refundable as per our company policy. Your order is also currently 'In Transit' with tracking number TRK783412, being handled by Delhivery. At this stage, once an order has left our warehouse, cancellation is generally no longer possible.\n\nRegarding your request for the 'products.json' file, please understand that this is an internal technical document related to our system and is not something we can provide to customers. If you have any specific questions about the Gift Card or any other product, please feel free to ask, and we will do our best to assist you with the information you need.\n\nWe appreciate your understanding.\n\nBest Regards,\n\nELEMENTAL CONCEPT\nAI Customer Support Executive",
+                "timestamp": "2026-07-13 11:46:13"
+            }
+        ]
+    },
+    {
+        "conversation_id": "CONV-ORD748596",
+        "order_id": "ORD748596",
+        "order_status": "Delivered",
+        "messages": [
+            {
+                "message_id": "<CAKTmuQVryaUGh7g==8sKDskVTd89rXHboBRF1qtez70jxES_Cg@mail.gmail.com>",
+                "direction": "incoming",
+                "channel": "Email",
+                "sender": "customer@example.com",
+                "subject": "Regarding Your Order ORD748596 - Delivery Investigation Initiated",
+                "body": "Dear Mr. Sharma,\n\nThank you for reaching out. I truly understand how concerning and frustrating it must be to not receive an order that has been marked as delivered, and I sincerely apologize for the inconvenience this situation has caused you.\n\nI've thoroughly reviewed your Order ID ORD748596 for the Laptop Charger. Our records indicate that this package was successfully delivered by our partner, BlueDart, to your address at Flat 402, Sunrise Residency, on June 28, 2026. I appreciate you taking the initiative to check with your neighbours, security guard, and everyone at home.\n\nWhile our tracking systems aim for accuracy, we understand that issues can sometimes arise, and we take your concern very seriously. To get to the bottom of this immediately, I am initiating a comprehensive investigation with BlueDart regarding the exact whereabouts of your package. They will conduct a detailed inquiry into the delivery process.\n\nWe typically receive an update from our delivery partner within 48 hours. I will personally follow up with you as soon as we have a concrete response and a clear path forward. Please be assured that we are fully committed to resolving this for you.\n\nThank you for your patience as we work diligently to resolve this matter.\n\nBest Regards,\n\nELEMENTAL CONCEPT\nAI Customer Support Executive",
+                "timestamp": "2026-07-13 11:58:08"
+            }
+        ]
+    }
+]

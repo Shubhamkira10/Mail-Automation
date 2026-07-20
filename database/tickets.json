@@ -1,0 +1,26 @@
+[
+    {
+        "ticket_id": "INV-C44E28B6",
+        "order_id": "ORD748596",
+        "customer_id": "CUS001",
+        "type": "Investigation",
+        "status": "Open",
+        "created_at": "2026-07-12 15:18:55"
+    },
+    {
+        "ticket_id": "INV-63B6B2D2",
+        "order_id": "ORD748596",
+        "customer_id": "CUS001",
+        "type": "Investigation",
+        "status": "Open",
+        "created_at": "2026-07-13 11:33:57"
+    },
+    {
+        "ticket_id": "INV-154AC864",
+        "order_id": "ORD748596",
+        "customer_id": "CUS001",
+        "type": "Investigation",
+        "status": "Open",
+        "created_at": "2026-07-13 11:58:07"
+    }
+]

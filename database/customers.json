@@ -1,0 +1,22 @@
+[
+    {
+        "customer_id": "CUS001",
+        "name": "Rahul Sharma",
+        "email": "rahul@gmail.com",
+        "phone": "9876543210"
+    },
+
+    {
+        "customer_id": "CUS002",
+        "name": "Aman Verma",
+        "email": "aman@gmail.com",
+        "phone": "9988776655"
+    },
+
+    {
+        "customer_id": "CUS003",
+        "name": "Varun Kumar",
+        "email": "varun@gmail.com",
+        "phone": "903456655"
+    }
+]

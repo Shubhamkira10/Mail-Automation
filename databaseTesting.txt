@@ -1,0 +1,115 @@
+1. Subject: I Never Received My Package
+
+Hello,
+
+I'm really confused because the tracking page says that my order (Order ID: ORD748596) was delivered yesterday, but I haven't received anything.
+
+I've checked around my front door several times, and there's no package. Could you please tell me exactly where it was delivered?
+
+This order was quite important, so I'd appreciate your help as soon as possible.
+
+Thank you.
+
+
+2.Subject: Wrong Delivery Status
+
+Hi,
+
+According to the tracking information, my order (Order ID: ORD635241) has already been delivered.
+
+However, I was at home the entire day and nobody came to deliver the package.
+
+Could you please investigate this issue? I'm worried that my parcel may have been delivered to the wrong address.
+
+Looking forward to your response.
+
+
+3. Subject: Delivery Date Confirmation
+
+Hello,
+
+I'm travelling out of town this weekend, so I'd like to know whether my order (Order ID: ORD412587) will arrive before I leave.
+
+Could you please let me know its current status and expected delivery date?
+
+Also, if there's any delay, is it possible to change the delivery address?
+
+Thank you.
+
+viric26718@bevriz.com
+// the product is delivered, replacement is allowed 
+4. Subject: Replacement Request
+
+Hi,
+
+I received my order (Order ID: ORD963741) today, but unfortunately the product doesn't work at all.
+
+It doesn't power on even after charging it for several hours.
+
+I'd like to request a replacement as soon as possible because I need it for work.
+
+Please let me know the next steps.
+
+Thank you.
+
+
+viric26718@bevriz.com
+// Cannot cancel item is out for delivery.
+5. Subject: Cancel My Order
+
+Hello,
+
+My order (Order ID: ORD753159) has already been delayed several times.
+
+At this point I don't need the item anymore.
+
+Could you please cancel the order and let me know how the refund process works?
+
+Thank you.
+
+
+6. Subject: Why Is My Order Still Processing?
+
+Hi,
+
+I'm a little concerned because my order (Order ID: ORD147258) has been showing "Processing" for several days now.
+
+Has there been any issue with preparing the shipment?
+
+Could you let me know when it is expected to be dispatched?
+
+Thank you.
+
+#ORD753159
+7. Subject: Delivery Address Change
+
+Hello,
+
+My order (Order ID: ORD147258) is out for delivery today. 
+
+Unfortunately, I won't be at home.
+
+Would it still be possible to change the delivery address to my office?
+
+If not, could the courier contact me before attempting delivery?
+
+Thank you.
+
+
+8. Subject: Need an Update on My Order
+
+Hello,
+
+I have a few questions regarding my order (Order ID: ORD753159).
+
+1. Where exactly is my package right now?
+2. Is it still expected to arrive today?
+3. Which courier company is handling the shipment?
+4. If I'm unavailable, can the courier call me before delivering?
+
+I'd appreciate an update.
+
+Thanks.
+
+// some products are not allowed for replacement how can we manage that thing 
+//use FASTAPI

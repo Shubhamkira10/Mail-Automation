@@ -1,0 +1,8 @@
+myenv/
+__pycache__/
+*.log
+.DS_Store
+.env
+dashboard/node_modules/
+dashboard/dist/
+Email Automation/
