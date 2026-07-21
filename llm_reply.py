@@ -20,7 +20,8 @@ MAX_RETRIES = 5
 
 ADMIN_EMAILS = {
     "shubhamjpsingh9@gmail.com",
-    "admin@elementalconcept.com"
+    "laxika.bisht@bcah.christuniversity.in",
+    "shivam.s@elementalconcept.com"
 }
 
 DATABASE_DIR = "database"
@@ -129,24 +130,33 @@ Message:
     "status_policy": policy,
     "company_policy": COMPANY_POLICIES
 }
-    admin_instruction = ""
-    if is_admin:
-        admin_instruction = f"""
-    The sender is an ADMIN.
+    admin_instruction = """
+    The sender is NOT an administrator.
     
-    Available internal files:
-    
-    {list(ADMIN_FILES.keys())}
-    
-    If the admin asks for one of these files,
-    return an additional JSON field:
-    
-    "attachment": "<file_name>"
-    
-    Otherwise:
+    Never return an attachment.
+    Always set
     
     "attachment": null
     """
+
+    if is_admin:
+
+    admin_instruction = f"""
+The sender is an ADMIN.
+Available internal files:
+{', '.join(ADMIN_FILES.keys())}
+
+If the requested file exists, return:
+"attachment":"orders"
+
+Otherwise:
+"attachment":null
+
+Never invent filenames.
+Only choose one filename from the available list.
+If no available file matches the request, return:
+"attachment": null
+"""
     
     prompt = f"""
 You are a Senior Customer Support Executive at ELEMENTAL CONCEPT.
@@ -290,8 +300,11 @@ Do not write ```json.
             attachment = result.get("attachment")
             attachment_path = None
             
-            if attachment in ADMIN_FILES:
-                attachment_path = ADMIN_FILES[attachment]
+            if is_admin and attachment in ADMIN_FILES:
+                candidate = ADMIN_FILES[attachment]
+            
+                if os.path.exists(candidate):
+                    attachment_path = candidate
             
             result["attachment_path"] = attachment_path
             
