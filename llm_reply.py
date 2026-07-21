@@ -206,6 +206,14 @@ The email should:
 ADMIN INSTRUCTION
 
 {admin_instruction}
+If you return an attachment, the email reply should mention that the requested file is attached.
+
+For example:
+Hello,
+As requested, I've attached the latest customer database.
+Please let me know if you need any additional information.
+Best Regards,
+ELEMENTAL CONCEPT AI Assistant
 --------------------------------------------------
 Customer Email
 
