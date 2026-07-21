@@ -16,6 +16,22 @@ import os
 import time
 
 MAX_RETRIES = 5
+
+ADMIN_EMAILS = {
+    "shubhamjpsingh9@gmail.com",
+    "admin@elementalconcept.com"
+}
+
+DATABASE_DIR = "database"
+
+ADMIN_FILES = {
+    "orders": os.path.join(DATABASE_DIR, "orders.json"),
+    "customers": os.path.join(DATABASE_DIR, "customers.json"),
+    "products": os.path.join(DATABASE_DIR, "products.json"),
+    "conversations": os.path.join(DATABASE_DIR, "conversations.json"),
+    "email logs": os.path.join(DATABASE_DIR, "email_logs.json"),
+}
+
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL_NAME = "gemini-flash-latest"
 BREVO_API_KEY = os.getenv("BREVO_API_KEY")
@@ -44,6 +60,9 @@ from database import (
 
 def generate_reply(mail):
 
+    sender_email = mail.get("from", "").lower()
+    is_admin = sender_email in ADMIN_EMAILS
+    
     customer_subject = mail.get("subject", "")
     customer_message = mail.get("body", "")
 
@@ -68,7 +87,6 @@ Message:
             return positive_reply()
 
     else:
-
         print("Sentiment Analysis S.")
 
     order_id = extract_order_id(email_text)
@@ -110,7 +128,25 @@ Message:
     "status_policy": policy,
     "company_policy": COMPANY_POLICIES
 }
-
+    admin_instruction = ""
+    if is_admin:
+        admin_instruction = f"""
+    The sender is an ADMIN.
+    
+    Available internal files:
+    
+    {list(ADMIN_FILES.keys())}
+    
+    If the admin asks for one of these files,
+    return an additional JSON field:
+    
+    "attachment": "<file_name>"
+    
+    Otherwise:
+    
+    "attachment": null
+    """
+    
     prompt = f"""
 You are a Senior Customer Support Executive at ELEMENTAL CONCEPT.
 Your primary goal is to resolve the customer's problem while maintaining a natural, empathetic conversation.
@@ -128,7 +164,11 @@ The email should:
 - Use the Order Details whenever relevant.
 - Never invent information.
 - Never promise actions that haven't happened.
+--------------------------------------------------
+ADMIN INSTRUCTION
 
+{admin_instruction}
+--------------------------------------------------
 Customer Email
 
 {email_text}
@@ -167,7 +207,8 @@ Return ONLY valid JSON in this exact format:
     "backend_action": "...",
     "parameters": {{}},
     "subject": "...",
-    "reply": "..."
+    "reply": "...",
+    "attachment": null
 }}
 --------------------------------------------------
 Order Handling Rules
@@ -244,6 +285,15 @@ Do not write ```json.
 
         try:
             result = json.loads(text)
+            
+            attachment = result.get("attachment")
+            attachment_path = None
+            
+            if attachment in ADMIN_FILES:
+                attachment_path = ADMIN_FILES[attachment]
+            
+            result["attachment_path"] = attachment_path
+            
             print("\nLLM Response")
             print(json.dumps(result, indent=4))
 
@@ -294,7 +344,7 @@ def extract_order_id(text):
 
     return None
 
-def send_email(receiver_email, subject, body):
+def send_email(receiver_email, subject, body, attachment_path=None):
 
     email = sib_api_v3_sdk.SendSmtpEmail(
 
