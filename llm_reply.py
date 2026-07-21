@@ -14,6 +14,7 @@ from business_rules import (
 )
 import os
 import time
+import base64
 
 MAX_RETRIES = 5
 
@@ -343,11 +344,21 @@ def extract_order_id(text):
         return match.group().upper()
 
     return None
-
+    
 def send_email(receiver_email, subject, body, attachment_path=None):
+    attachments = None
+    if attachment_path and os.path.exists(attachment_path):
+        with open(attachment_path, "rb") as f:
+            encoded_file = base64.b64encode(f.read()).decode("utf-8")
+
+        attachments = [
+            {
+                "name": os.path.basename(attachment_path),
+                "content": encoded_file
+            }
+        ]
 
     email = sib_api_v3_sdk.SendSmtpEmail(
-
         sender={
             "name": SENDER_NAME,
             "email": SENDER_EMAIL
@@ -360,23 +371,21 @@ def send_email(receiver_email, subject, body, attachment_path=None):
         ],
 
         subject=subject,
-
-        text_content=body
-
+        text_content=body,
+        attachment=attachments
     )
 
     try:
-
         response = api_instance.send_transac_email(email)
-
         print("\nEmail Sent Successfully!")
         print(response)
 
+        if attachment_path:
+            print(f"Attachment Sent: {attachment_path}")
+            
     except ApiException as e:
-
         print("\nBrevo Error:\n")
         print(e)
-
 
 def invalid_order_reply(order_id):
 
