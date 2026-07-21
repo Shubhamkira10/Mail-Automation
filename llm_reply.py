@@ -24,7 +24,8 @@ ADMIN_EMAILS = {
     "shivam.s@elementalconcept.com"
 }
 
-DATABASE_DIR = "database"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE_DIR = os.path.join(BASE_DIR, "database")
 
 ADMIN_FILES = {
     "orders": os.path.join(DATABASE_DIR, "orders.json"),
@@ -130,6 +131,10 @@ Message:
     "status_policy": policy,
     "company_policy": COMPANY_POLICIES
 }
+    available_files = "\n".join(
+        f"- {name}" for name in ADMIN_FILES
+    )
+    
     admin_instruction = """
     The sender is NOT an administrator.
     
@@ -140,26 +145,48 @@ Message:
     """
 
     if is_admin:
+        admin_instruction = f"""
+    The sender is an ADMIN.
+    Available internal files:
+    {available_files}
+    
+    If the admin requests one of the available files, return the matching file name.
+    Examples:
+    
+    If the admin asks for orders:
+    "attachment": "orders"
+    
+    If the admin asks for customers:
+    "attachment": "customers"
+    
+    If the admin asks for products:
+    "attachment": "products"
+    
+    If the admin asks for conversations:
+    "attachment": "conversations"
+    
+    If the admin asks for email logs:
+    "attachment": "email logs"
+    
+    Otherwise:
+    "attachment": null
+    
+    Never invent filenames.
+    Only choose one filename from the available list.
+    If no available file matches the request, return:
+    "attachment": null
+    """
 
-    admin_instruction = f"""
-The sender is an ADMIN.
-Available internal files:
-{', '.join(ADMIN_FILES.keys())}
-
-If the requested file exists, return:
-"attachment":"orders"
-
-Otherwise:
-"attachment":null
-
-Never invent filenames.
-Only choose one filename from the available list.
-If no available file matches the request, return:
-"attachment": null
-"""
+    role = (
+        "You are an Internal AI Assistant for ELEMENTAL CONCEPT. "
+        "You help authorized administrators access internal company data securely."
+        if is_admin
+        else
+        "You are a Senior Customer Support Executive at ELEMENTAL CONCEPT."
+    )
     
     prompt = f"""
-You are a Senior Customer Support Executive at ELEMENTAL CONCEPT.
+{role}
 Your primary goal is to resolve the customer's problem while maintaining a natural, empathetic conversation.
 Always understand WHY the customer is contacting support before deciding HOW to respond.
 If information is missing, explain what is needed and why it is needed instead of giving a generic response.
