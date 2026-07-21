@@ -177,7 +177,8 @@ REQUIRED_RESPONSE_KEYS = (
     "backend_action",
     "parameters",
     "subject",
-    "reply"
+    "reply",
+    "attachment"
 )
 
 ALLOWED_INTENTS = {
