@@ -89,7 +89,8 @@ def receive_email():
         send_email(
             mail["from"],
             result["subject"],
-            result["reply"]
+            result["reply"],
+            result.get("attachment_path")
         )
 
         conversation = add_message(
